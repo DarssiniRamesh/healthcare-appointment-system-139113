@@ -1,104 +1,323 @@
-/* CSS Variables for Theme Management */
+/* Ocean Professional - Elegant Theme Base Styles */
+
 :root {
-  /* Light theme colors */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --text-primary: #282c34;
-  --text-secondary: #61dafb;
-  --border-color: #e9ecef;
-  --button-bg: #007bff;
-  --button-text: #ffffff;
+  --color-primary: #F472B6;
+  --color-secondary: #F59E0B;
+  --color-success: #10B981;
+  --color-error: #EF4444;
+  --gradient-from: #FFF1F2;
+  --gradient-to: #FAF5FF;
+  --bg: #FDF2F8;
+  --surface: #FFFFFF;
+  --text: #374151;
+  --text-secondary: #6B7280;
+  --border: rgba(55,65,81,0.08);
+  --shadow: 0 10px 30px rgba(16, 24, 40, 0.08);
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 10px;
 }
 
-[data-theme="dark"] {
-  /* Dark theme colors */
-  --bg-primary: #1a1a1a;
-  --bg-secondary: #282c34;
-  --text-primary: #ffffff;
-  --text-secondary: #61dafb;
-  --border-color: #404040;
-  --button-bg: #0056b3;
-  --button-text: #ffffff;
+* { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
 }
 
-.App {
-  text-align: center;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+body {
+  margin: 0;
+  background: linear-gradient(135deg, var(--gradient-from), var(--gradient-to)) fixed;
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* Layout */
+.app-shell {
+  display: grid;
+  grid-template-columns: 280px 1fr;
   min-height: 100vh;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Sidebar */
+.sidebar {
+  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.65);
+  border-right: 1px solid var(--border);
+  padding: 28px 22px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: var(--bg-secondary);
-  min-height: 100vh;
+.brand {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: var(--text-primary);
-  transition: background-color 0.3s ease;
-  position: relative;
+  gap: 12px;
+  margin-bottom: 28px;
 }
 
-.App-link {
+.brand-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: radial-gradient(120px 60px at 20% 20%, var(--color-primary), transparent),
+              radial-gradient(120px 80px at 80% 80%, var(--color-secondary), transparent),
+              #ffffff;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.brand-title {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.nav-section {
+  margin-top: 18px;
+}
+
+.nav-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
   color: var(--text-secondary);
-  transition: color 0.3s ease;
+  cursor: default;
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
 }
 
-.theme-toggle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background-color: var(--button-bg);
-  color: var(--button-text);
-  border: none;
-  border-radius: 8px;
-  padding: 10px 20px;
+.nav-step .badge {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.nav-step.active {
+  background: #fff;
+  border-color: var(--border);
+  color: var(--text);
+  transform: translateX(2px);
+}
+
+.nav-step.completed {
+  background: linear-gradient(135deg, rgba(244,114,182,0.08), rgba(245,158,11,0.08));
+  border-color: rgba(244,114,182,0.20);
+  color: var(--text);
+}
+
+/* Main content */
+.main {
+  padding: 32px;
+}
+
+.content-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 24px;
+}
+
+/* Headers */
+.h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+  letter-spacing: 0.2px;
+}
+
+.subtle {
+  margin: 0 0 24px;
+  color: var(--text-secondary);
+}
+
+/* Doctor list */
+.doctor-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 18px;
+}
+
+.doctor-card {
+  grid-column: span 6;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 18px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.doctor-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px rgba(16, 24, 40, 0.1);
+}
+
+.doc-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: radial-gradient(120px 60px at 20% 20%, rgba(244,114,182,0.4), transparent),
+              radial-gradient(120px 80px at 80% 80%, rgba(245,158,11,0.4), transparent),
+              #fff;
+  border: 1px solid var(--border);
+}
+
+.doc-info {
+  flex: 1;
+}
+
+.doc-name {
+  margin: 0 0 4px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.doc-specialty {
+  margin: 0;
+  color: var(--text-secondary);
   font-size: 14px;
+}
+
+.action-area {
+  display: flex;
+  gap: 10px;
+}
+
+/* Buttons */
+.btn {
+  appearance: none;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 10px 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform .15s ease, box-shadow .15s ease, background .2s ease;
+  box-shadow: var(--shadow);
+  background: #fff;
+  color: var(--text);
 }
 
-.theme-toggle:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  opacity: 0.9;
+.btn:hover {
+  transform: translateY(-1px);
 }
 
-.theme-toggle:active {
-  transform: translateY(0);
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary), #fb7185);
+  color: white;
+  border: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-secondary {
+  background: #fff7ed; /* amber-50 */
+  color: #92400e;
+  border: 1px solid rgba(245,158,11,0.25);
 }
 
-/* Responsive design for mobile */
-@media (max-width: 768px) {
-  .theme-toggle {
-    top: 10px;
-    right: 10px;
-    padding: 8px 16px;
-    font-size: 12px;
-  }
+.btn-ghost {
+  background: #fff;
+  border: 1px solid var(--border);
+}
+
+/* Slots */
+.slot-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+
+.slot {
+  padding: 12px 10px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  box-shadow: var(--shadow);
+  user-select: none;
+}
+
+.slot:hover {
+  transform: translateY(-1px);
+}
+
+.slot.selected {
+  border-color: rgba(244,114,182,0.6);
+  box-shadow: 0 6px 20px rgba(244,114,182,0.25);
+}
+
+/* Forms */
+.form {
+  display: grid;
+  gap: 14px;
+  max-width: 680px;
+}
+
+.form-row {
+  display: grid;
+  gap: 8px;
+}
+
+.input, .select, .textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  outline: none;
+  transition: border-color .15s ease, box-shadow .2s ease;
+  box-shadow: var(--shadow);
+}
+
+.input:focus, .select:focus, .textarea:focus {
+  border-color: rgba(244,114,182,0.6);
+  box-shadow: 0 6px 20px rgba(244,114,182,0.20);
+}
+
+/* Footer actions */
+.actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+}
+
+/* Confirmation card */
+.confirm-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+.confirm-row:last-child {
+  border-bottom: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .doctor-card { grid-column: span 12; }
+  .slot-grid { grid-template-columns: repeat(3, 1fr); }
+  .app-shell { grid-template-columns: 1fr; }
+  .sidebar { position: relative; height: auto; }
 }

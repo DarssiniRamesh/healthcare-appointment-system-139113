@@ -1,82 +1,39 @@
-# Lightweight React Template for KAVIA
+# Healthcare Appointment Frontend (Ocean Professional – Elegant)
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+A lightweight React app implementing a complete healthcare appointment flow with an elegant, luxurious aesthetic.
 
-## Features
+## Flow
+1. Doctor Selection
+2. Slot Selection
+3. Patient Info
+4. Confirmation
+5. Success (post-confirmation)
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+## Theme
+Ocean Professional – Elegant:
+- Primary: `#F472B6`
+- Secondary: `#F59E0B`
+- Success: `#10B981`
+- Error: `#EF4444`
+- Background gradient: from rose-50 to purple-50
+- Clean surfaces, rounded corners, subtle shadows.
 
-## Getting Started
+CSS variables are applied at runtime through `src/theme.js` (`applyCSSVariables`) and used by styles in `src/App.css`.
 
-In the project directory, you can run:
+## Run
+- `npm start` – dev server
+- `npm test` – unit test
+- `npm run build` – production build
 
-### `npm start`
+## Structure
+- `src/theme.js` – Theme data and helpers
+- `src/components/Sidebar.js` – Sidebar with booking steps
+- `src/components/DoctorList.js` – Step 1 doctor selection
+- `src/components/SlotSelection.js` – Step 2 slot selection
+- `src/components/PatientInfoForm.js` – Step 3 patient details
+- `src/components/Confirmation.js` – Step 4 confirmation
+- `src/components/Success.js` – Success page
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-### `npm test`
-
-Launches the test runner in interactive watch mode.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
-```
-
-### Components
-
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
-
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
-
-## Learn More
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Notes
+- Mock data is used for doctors and slots (no backend required).
+- All components are structured for easy style/design updates. Replace styles or wire API calls as needed.
