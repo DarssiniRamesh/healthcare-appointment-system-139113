@@ -1,0 +1,4 @@
+{
+    "command": "npm install",
+    "working_directory": "/home/kavia/workspace/code-generation/healthcare-appointment-system-139113/appointment_system_frontend"
+}
